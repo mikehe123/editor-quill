@@ -5,28 +5,18 @@ import { argumentIdState } from "../../state/atoms";
 import { ArgumentItem } from "../ArgumentItem";
 import useKey from "../KeyPress";
 
-
-
-
-
 const Conclusion = () => {
   const argId = useRecoilValue(argumentIdState);
-  
-  console.log(argId)
-
-  if(argId.length >= 10){
-    let i = 0
-    while(i<10){
-      
-    }
-  }
-
+  console.log(argId);
   return (
     <>
       <ConclusionContainer>
         {argId.map((itemId) => {
-      return <ArgumentItem itemKey={itemId} />
-})}
+          // if (index < argId.length - 1) {
+          return <ArgumentItem key={itemId} itemId={itemId} />;
+          // }
+          // return <div id={-999}>Last Index</div>;
+        })}
       </ConclusionContainer>
     </>
   );

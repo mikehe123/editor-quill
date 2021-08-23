@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactQuill, { quill } from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -7,27 +7,28 @@ import useKey from "../KeyPress";
 import { EditorContainer, EditorWrap } from "./EditorElements";
 import bindings, { content } from "./keybindings";
 
-
-const Editor = ({itemKey}) => {
+const Editor = ({ itemKey, tabPressed }) => {
   // const tabPresssed = useKey("tab")
-  // const [value, setValue] = React.useState("");
-  // const argumentId = useRecoilValue(argumentIdState);
-  const [argument, setArgument] = useRecoilState(
-    argumentListState(itemKey)
-  );
-  console.log("editror id: "+argument.content)
-    const handleChange = (e) =>{
-      setArgument({
-        content:e
-      })
-    }
+  const [value, setValue] = React.useState("");
+  const [argument, setArgument] = useRecoilState(argumentListState(itemKey));
+
+  const handleChange = (e) => {
+    setValue(e);
+  };
+
+  useEffect(() => {
+    setArgument({
+      content: value,
+    });
+    setValue("");
+  }, [tabPressed]);
   return (
     <>
       <EditorContainer>
         <EditorWrap>
           <ReactQuill
             theme="bubble"
-            value={argument.content}
+            value={value}
             onChange={handleChange}
             modules={{
               toolbar: false,
@@ -35,7 +36,6 @@ const Editor = ({itemKey}) => {
                 bindings: bindings,
               },
             }}
-          
           />
         </EditorWrap>
       </EditorContainer>
