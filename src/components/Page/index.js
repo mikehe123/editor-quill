@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { argumentIdState } from "../../state/atoms";
 import Conclusion from "../Conclusion";
-import Editor from "../editor";
+import Editor from "../Editor";
 import EditorLogicContainer from "../EditorContainer";
 
 import useKey from "../KeyPress";
 import { PageContainer } from "./PageElements";
+import { UpdateId } from "./updateId";
 
 // let id = 1;
 function getId(id) {
@@ -18,6 +19,7 @@ const Page = () => {
       <PageContainer>
         <Conclusion />
         <EditorLogicContainer />
+        <UpdateId />
       </PageContainer>
     </>
   );

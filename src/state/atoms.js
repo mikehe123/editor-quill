@@ -12,8 +12,9 @@ export const argumentIdState = atom({
   default: [0],
 });
 
-
-
-
+export const tabState = atom({
+  key: "tabState",
+  default: 0,
+});
 
 export let id = 1;

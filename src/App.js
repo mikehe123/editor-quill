@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Editor from "./components/editor";
+import Editor from "./components/Editor";
 import Page from "./components/Page";
 import { RecoilRoot } from "recoil";
 import RecoilNexus from "recoil-nexus";
