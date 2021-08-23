@@ -1,16 +1,32 @@
 import React from "react";
 import { ConclusionContainer } from "./ConclusionElements";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { argumentIdState } from "../../state/atoms";
-import { ArgumentItem } from "../ConclusionItem";
+import { ArgumentItem } from "../ArgumentItem";
+import useKey from "../KeyPress";
+
+
+
+
+
 const Conclusion = () => {
-  const argIds = useRecoilValue(argumentIdState);
+  const argId = useRecoilValue(argumentIdState);
+  
+  console.log(argId)
+
+  if(argId.length >= 10){
+    let i = 0
+    while(i<10){
+      
+    }
+  }
+
   return (
     <>
       <ConclusionContainer>
-        {argIds.map((element) => {
-          <ArgumentItem key={element} />;
-        })}
+        {argId.map((itemId) => {
+      return <ArgumentItem itemKey={itemId} />
+})}
       </ConclusionContainer>
     </>
   );
