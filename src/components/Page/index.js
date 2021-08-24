@@ -9,10 +9,7 @@ import useKey from "../KeyPress";
 import { PageContainer } from "./PageElements";
 import { UpdateId } from "./updateId";
 
-// let id = 1;
-function getId(id) {
-  return id++;
-}
+
 const Page = () => {
   return (
     <>
