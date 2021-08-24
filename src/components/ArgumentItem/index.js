@@ -7,7 +7,7 @@ export function ArgumentItem({ itemId }) {
   const argument = useRecoilValue(argumentListState(itemId));
   // console.log("argument item id: " + typeof itemKey);
   // console.log("keyis" + itemKey);
-
-  return <ArgItem>{argument.content}</ArgItem>;
+  // console.log(argument.contentBlock);
+  return <ArgItem>temp</ArgItem>;
   // return <div>{}</div>;
 }

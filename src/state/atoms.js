@@ -1,9 +1,10 @@
 import { atom, atomFamily } from "recoil";
-
+import Parchment from "parchment";
 export const argumentListState = atomFamily({
   key: "argumentListState",
   default: {
-    content: "",
+    contentBlock: new Parchment(),
+    cursorAt: 0,
   },
 });
 
